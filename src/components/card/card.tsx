@@ -18,9 +18,13 @@ const Card = ({ card }: CardProps) => {
   return (
     <div className="card" data-testid={`card-${card.id}`}>
       <h2 className="card-title">{card.title}</h2>
-      {card.tasks.map((task) => (
-        <MemoizedTask task={task} key={"task-" + task.id} cardId={card.id} />
-      ))}
+      {card.tasks.length !== 0 ? (
+        card.tasks.map((task) => (
+          <MemoizedTask task={task} key={"task-" + task.id} cardId={card.id} />
+        ))
+      ) : (
+        <p>Add a task to the list</p>
+      )}
       <div>
         <input
           className="card-input"

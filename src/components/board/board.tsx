@@ -9,10 +9,13 @@ const Board: React.FC = () => {
 
   return (
     <div className="board">
-      {cards &&
+      {cards.length !== 0 ? (
         cards.map((card) => (
           <MemoizedCard card={card} key={"card-" + card.id} />
-        ))}
+        ))
+      ) : (
+        <h1>Add a card to get started</h1>
+      )}
       <button
         className="add-card"
         onClick={() => dispatch(addCard())}
