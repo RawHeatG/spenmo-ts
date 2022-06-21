@@ -5,7 +5,7 @@
 
 .add-card{
   position: absolute;
-  top: 2rem;
+  top: calc(var(--nav-height) + 1rem);
   right: 2rem;
   padding: 1rem;
   border: none;

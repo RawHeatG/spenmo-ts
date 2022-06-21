@@ -11,6 +11,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
+    <nav>
+      <h1>Trello</h1>
+    </nav>
     <App />
   </Provider>
 );

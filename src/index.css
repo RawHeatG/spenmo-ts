@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --primary-color: #123753;
   --secondary-color: #05b4ee;
+  --nav-height: 4rem;
   background-color: var(--primary-color);
 }
 
@@ -17,4 +18,16 @@ code {
 
 button{
   cursor: pointer;
+}
+
+
+nav {
+  display: flex;
+  width: 100%;
+  background-color: var(--secondary-color);
+  height: var(--nav-height);
+}
+
+nav > h1{
+  margin-left: 2rem;
 }

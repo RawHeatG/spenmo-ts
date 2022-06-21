@@ -18,6 +18,8 @@
 
 .task-input{
     background-color: inherit;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .edit-task{
