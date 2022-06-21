@@ -42,10 +42,20 @@ const cardSlice = createSlice({
       state.cards = state.cards.filter((card) => card.id !== action.payload.id);
     },
     addTask: (state, action) => {
-      state.cards[action.payload.id - 1].tasks.push({
-        id: state.cards[action.payload.id - 1].tasks.length + 1,
-        heading: action.payload.taskHeading
-      });
+      state.cards = state.cards.map((card) =>
+        card.id === action.payload.id
+          ? {
+              ...card,
+              tasks: [
+                ...card.tasks,
+                {
+                  id: card.tasks.length + 1,
+                  heading: action.payload.taskHeading
+                }
+              ]
+            }
+          : card
+      );
     },
     deleteTask: (state, action) => {
       console.log("deleteTask", action);
