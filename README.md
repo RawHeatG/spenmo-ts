@@ -21,6 +21,10 @@ Live: https://spenmo-ts.vercel.app/
   * Reusable Components
   * Modular Design  
 
+## Perfect LightHose Score
+![Screenshot (4)](https://user-images.githubusercontent.com/26995225/174791882-c4086280-87c1-4a96-8c51-a0d2dc5ae276.png)
+
+
 ## Tech Stack
 * React
 * Typescript
