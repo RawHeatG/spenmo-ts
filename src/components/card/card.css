@@ -1,0 +1,42 @@
+.card {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 6px;
+    background-color: #d9dfe8;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: max-content;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 300px;
+    }
+}
+
+.card-title{
+    text-align: center;
+    margin: 6px;
+}
+
+.card-input{
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
+    margin: 10px 6px 0 0;
+}
+
+.add-task{
+    background-color: inherit;
+    border: none;
+    font-weight: bold;
+}
+
+.delete-card{
+    border: 1px orange solid;
+    border-radius: 4px;
+    margin: 10px auto 0 auto;
+    width: max-content;
+}

@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { MemoizedCard } from "./components/card/card";
+import { addCard } from "./slices/card/card-slice";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
 
 function App() {
+  const { cards } = useAppSelector((state) => state.cards);
+  const dispatch = useAppDispatch();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {cards &&
+        cards.map((card) => (
+          <MemoizedCard card={card} key={"card-" + card.id} />
+        ))}
+      <button className="add-card" onClick={() => dispatch(addCard())}>
+        +
+      </button>
     </div>
   );
 }
