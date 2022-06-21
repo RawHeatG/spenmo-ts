@@ -16,7 +16,7 @@ const Card = ({ card }: CardProps) => {
     setNewTask("");
   };
   return (
-    <div className="card">
+    <div className="card" data-testid={`card-${card.id}`}>
       <h2 className="card-title">{card.title}</h2>
       {card.tasks.map((task) => (
         <MemoizedTask task={task} key={"task-" + task.id} cardId={card.id} />
@@ -29,13 +29,18 @@ const Card = ({ card }: CardProps) => {
           value={newTask}
           onChange={(event) => setNewTask(event.target.value)}
         ></input>
-        <button className="add-task" onClick={handleAddtask}>
+        <button
+          className="add-task"
+          onClick={handleAddtask}
+          data-testid={`card-${card.id}-add-task`}
+        >
           +
         </button>
       </div>
       <button
         className="delete-card"
         onClick={() => dispatch(deleteCard({ id: card.id }))}
+        data-testid={`delete-card-${card.id}`}
       >
         Delete
       </button>

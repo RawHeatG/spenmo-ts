@@ -19,7 +19,7 @@ const Task = ({ task, cardId }: TaskProps) => {
   const handleDeleteTask = () =>
     dispatch(deleteTask({ cardId, taskId: task.id }));
   return (
-    <div className="task">
+    <div className="task" data-testid={`card-${cardId}-task-${task.id}`}>
       {isEditing ? (
         <>
           <input
@@ -27,6 +27,7 @@ const Task = ({ task, cardId }: TaskProps) => {
             value={newHeading}
             onChange={(event) => setNewHeading(event.target.value)}
             placeholder="New task heading..."
+            data-testid={`card-${cardId}-task-${task.id}-edit-task-input`}
           ></input>
           <button onClick={handleUpdateTask}>👍</button>
         </>
@@ -34,10 +35,18 @@ const Task = ({ task, cardId }: TaskProps) => {
         <>
           <p className="task-heading">{task.heading}</p>
           <div>
-            <button className="edit-task" onClick={() => setIsEditing(true)}>
+            <button
+              className="edit-task"
+              onClick={() => setIsEditing(true)}
+              data-testid={`card-${cardId}-task-${task.id}-edit-task`}
+            >
               🖊
             </button>
-            <button className="delete-task" onClick={handleDeleteTask}>
+            <button
+              className="delete-task"
+              onClick={handleDeleteTask}
+              data-testid={`card-${cardId}-task-${task.id}-delete-task`}
+            >
               x
             </button>
           </div>

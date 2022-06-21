@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { MemoizedCard } from "../card/card";
 import "./board.css";
 
-function Board() {
+const Board: React.FC = () => {
   const { cards } = useAppSelector((state) => state.cards);
   const dispatch = useAppDispatch();
 
@@ -13,11 +13,15 @@ function Board() {
         cards.map((card) => (
           <MemoizedCard card={card} key={"card-" + card.id} />
         ))}
-      <button className="add-card" onClick={() => dispatch(addCard())}>
+      <button
+        className="add-card"
+        onClick={() => dispatch(addCard())}
+        data-testid="add-card"
+      >
         +
       </button>
     </div>
   );
-}
+};
 
 export { Board };
