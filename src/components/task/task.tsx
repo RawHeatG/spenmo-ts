@@ -4,6 +4,7 @@ import "./task.css";
 import { useAppDispatch } from "../../store/hooks";
 import { deleteTask, updateTask } from "../../slices/card/card-slice";
 import { TTask } from "../../App.types";
+import isEqual from "lodash.isequal";
 
 const Task = ({ task, cardId }: TaskProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -46,6 +47,6 @@ const Task = ({ task, cardId }: TaskProps) => {
   );
 };
 
-const MemoizedTask = React.memo(Task);
+const MemoizedTask = React.memo(Task, isEqual);
 
 export { Task, MemoizedTask };

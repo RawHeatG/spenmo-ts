@@ -4,11 +4,12 @@ import "./card.css";
 import React, { useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { addTask, deleteCard } from "../../slices/card/card-slice";
+import isEqual from "lodash.isequal";
 
 const Card = ({ card }: CardProps) => {
   const [newTask, setNewTask] = useState("");
   // Render-Check
-  // console.log("card" + card.id + "rendered", card);
+  // console.log("card" + card.id + "rendered");
   const dispatch = useAppDispatch();
   const handleAddtask = () => {
     dispatch(addTask({ id: card.id, taskHeading: newTask }));
@@ -42,6 +43,6 @@ const Card = ({ card }: CardProps) => {
   );
 };
 
-const MemoizedCard = React.memo(Card);
+const MemoizedCard = React.memo(Card, isEqual);
 
 export { MemoizedCard, Card };
