@@ -12,9 +12,9 @@ Live: https://spenmo-ts.vercel.app/
   * Update
   * Delete 
 * Optimized Rendering
-  * What you change is what you Re-render
   * Using React.memo with loadash.isEqual for deep compare
 * Pixel Perfect Design
+* Responsive
 * Tests for the reducers
 * Clean Forder Structure
 * Dry Code
